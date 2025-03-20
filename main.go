@@ -5,6 +5,7 @@ import (
 	"errors"
 	"fmt"
 	"github.com/gin-gonic/gin"
+	"github.com/joho/godotenv"
 	"github.com/newrelic/go-agent/v3/newrelic"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 	swaggerFiles "github.com/swaggo/files"
@@ -29,7 +30,7 @@ var logger = config.ZapTestConfig()
 
 // @BasePath  /
 func main() {
-
+	godotenv.Load()
 	// Postgres Config & Migration
 	db := config.ConnectPostgres()
 	database.Migrate(db)

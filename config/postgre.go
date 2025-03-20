@@ -15,6 +15,7 @@ func ConnectPostgres() *gorm.DB {
 	var postgresDb *gorm.DB
 	once.Do(func() {
 		dsn := getConnectionString()
+		log.Println(dsn)
 		var err error
 		postgresDb, err = gorm.Open(postgres.Open(dsn), &gorm.Config{})
 		if err != nil {

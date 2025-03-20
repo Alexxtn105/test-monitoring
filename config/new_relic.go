@@ -7,6 +7,8 @@ import (
 )
 
 func NewRelicConfig() *newrelic.Application {
+
+	//fmt.Println(config().NewRelic.License)
 	app, err := newrelic.NewApplication(
 		newrelic.ConfigAppName(config().NewRelic.AppName),
 		newrelic.ConfigLicense(config().NewRelic.License),

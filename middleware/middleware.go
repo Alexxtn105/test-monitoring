@@ -1,14 +1,15 @@
 package middleware
 
 import (
+	"net/http"
+	"test-monitoring/logging"
+
 	sentrygin "github.com/getsentry/sentry-go/gin"
 	"github.com/gin-gonic/gin"
 	"github.com/google/uuid"
 	"github.com/newrelic/go-agent/v3/integrations/nrgin"
 	"github.com/newrelic/go-agent/v3/newrelic"
 	"go.uber.org/zap"
-	"net/http"
-	"test-monitoring/logging"
 )
 
 type middleware struct {
@@ -45,7 +46,8 @@ func (m middleware) LogMiddleware(ctx *gin.Context) {
 
 	ctx.Next()
 
-	logMessage := logging.FormatRequestAndResponse(ctx.Writer, ctx.Request, responseBody.Body.String(), requestId, requestBody)
+	//logMessage := logging.FormatRequestAndResponse(ctx.Writer, ctx.Request, responseBody.Body.String(), requestId, requestBody)
+	logMessage := logging.FormatRequestAndResponse(0, ctx.Request, responseBody.Body.String(), requestId, requestBody)
 
 	if logMessage != "" {
 		if isSuccessStatusCode(ctx.Writer.Status()) {

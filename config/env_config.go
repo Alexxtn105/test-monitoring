@@ -19,6 +19,8 @@ func config() AppConfig {
 			log.Fatal(err)
 		}
 		log.Println("Environments initialized.")
+		//fmt.Printf("%#v\n", cfg)
+		//fmt.Printf("%#v\n", *cfg.NewRelic)
 	})
 	return cfg
 }
@@ -33,12 +35,12 @@ type Database struct {
 	Host         string `env:"POSTGRES_HOST, default=localhost"`
 	Username     string `env:"POSTGRES_USERNAME, default=postgres"`
 	Password     string `env:"POSTGRES_PASSWORD, default=postgres"`
-	Port         string `env:"POSTGRES_PORT, default=5432"`
+	Port         string `env:"POSTGRES_PORT, default=5433"`
 	DatabaseName string `env:"DATABASE_NAME, default=postgres"`
 }
 
 type NewRelic struct {
-	AppName string `env:"APP_NAME, default=go-app"`
+	AppName string `env:"APP_NAME, default=test-monitoring"`
 	License string `env:"NEW_RELIC_LICENSE"`
 }
 
