@@ -27,17 +27,17 @@ paths:
   /api/v1/users:
     post:
       consumes:
-        - application/json
+      - application/json
       description: Create User.
       parameters:
-        - description: User to be created
-          in: body
-          name: user
-          required: true
-          schema:
-            $ref: '#/definitions/domain.User'
+      - description: User to be created
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/domain.User'
       produces:
-        - application/json
+      - application/json
       responses:
         "201":
           description: Returns created user
@@ -49,20 +49,20 @@ paths:
             $ref: '#/definitions/domain.AppError'
       summary: Create User
       tags:
-        - users
+      - users
     put:
       consumes:
-        - application/json
+      - application/json
       description: Update User.
       parameters:
-        - description: User to be updated
-          in: body
-          name: user
-          required: true
-          schema:
-            $ref: '#/definitions/domain.User'
+      - description: User to be updated
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/domain.User'
       produces:
-        - application/json
+      - application/json
       responses:
         "201":
           description: Returns updated user
@@ -74,20 +74,20 @@ paths:
             $ref: '#/definitions/domain.AppError'
       summary: Update User
       tags:
-        - users
+      - users
   /api/v1/users/{id}:
     delete:
       consumes:
-        - application/json
+      - application/json
       description: Delete a user using their ID from the database.
       parameters:
-        - description: User ID
-          in: path
-          name: id
-          required: true
-          type: integer
+      - description: User ID
+        in: path
+        name: id
+        required: true
+        type: integer
       produces:
-        - application/json
+      - application/json
       responses:
         "204":
           description: No Content
@@ -97,19 +97,19 @@ paths:
             $ref: '#/definitions/domain.AppError'
       summary: Delete a user by ID
       tags:
-        - users
+      - users
     get:
       consumes:
-        - application/json
+      - application/json
       description: Retrieve a user using their ID from the database.
       parameters:
-        - description: User ID
-          in: path
-          name: id
-          required: true
-          type: integer
+      - description: User ID
+        in: path
+        name: id
+        required: true
+        type: integer
       produces:
-        - application/json
+      - application/json
       responses:
         "200":
           description: Returns user
@@ -121,5 +121,5 @@ paths:
             $ref: '#/definitions/domain.AppError'
       summary: Get a user by ID
       tags:
-        - users
+      - users
 swagger: "2.0"
